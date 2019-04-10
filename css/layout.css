@@ -30,12 +30,12 @@ nav ul li a:hover {
 }
 
 /*スライドショー*/
-#slide{
+.slide{
    position: relative;
    height: 300px;
    max-width: 960px;
 }
-#slide img{
+.slide img{
    position: absolute;
    left: 0;
    top: 0;
@@ -61,6 +61,7 @@ nav ul li a:hover {
 
 
 
+
 section {
   display: flex;
   flex-wrap: wrap;
@@ -71,11 +72,11 @@ section {
 section div {
   width: 33%;
   display: inline-block;;
-  height: 300px;
+  min-height: 400px;
   margin: 0 0 2.5vw;
   padding: 3%;
   box-sizing: border-box;
-  background: #09c;
+  background: #eaeaea;
 }
 
 .photo {
@@ -98,8 +99,8 @@ figure.cp_caption {
   overflow: hidden;
   width: 100%;
   min-width: 120px;
-  max-width: 200px;
-  max-height: 120px;
+  max-width: 300px;
+  max-height: 300px;
   margin: 10px 1%;
   color: #ffffff;
 }
@@ -114,11 +115,16 @@ figure.cp_caption img {
   height: 100%;
 }
 
+.cp_caption img:hover,figure.cp_caption:hover {
+  filter: grayscale(100%);
+  transition: all 0.3s ease-out;
+}
+
 figure.cp_caption figcaption {
   position: absolute;
   z-index: 1;
   top: 50%;
-  padding: 3em 3em;
+  padding: 1em;
   transition: all 0.3s ease-out;
   transition-delay: 0.1s;
   opacity: 0;
@@ -126,10 +132,10 @@ figure.cp_caption figcaption {
 
 figure.cp_caption:after {
   position: absolute;
-  top:7%;
-  right: 10%;
+  top:5%;
+  right: 5%;
   bottom: 7%;
-  left: 20%;
+  left: 5%;
   display: inline-block;
   content: '';
   transition: all 0.3s ease-out;
@@ -146,12 +152,38 @@ figure.cp_caption:hover figcaption {
   opacity: 1;
 }
 
+/*モーダル*/
+#modal-content {
+  width: 50%;
+  margin: 1.5em auto 0;
+  padding: 10px 20px;
+  border: 2px solid #aaa;
+  background: #fff;
+  z-index: 2;
+}
+
+.modal-p {
+  margin-top: 1em;
+}
+
+.modal-p :first-child {
+  margin-top: 0;
+}
+
+.button-link {
+  color:#00f;
+  text-decoration: underline;;
+}
+
+.button-link:hover {
+  cursor: pointer;
+  color: #f00;
+}
 
 /*テーブルレイアウト*/
 .topics dl {
   padding: 15px;
   border: 1px solid #ccc;
-  width: 100%;
   background-color: #fff;
 }
 
@@ -167,7 +199,7 @@ figure.cp_caption:hover figcaption {
   .topics dt {
     clear: left;
     float: left;
-    width: 10%;
+    /*width: 30%;*/
   }
   .topics dd{
     margin-left: 11%;
@@ -188,12 +220,16 @@ figure.cp_caption:hover figcaption {
 
 
 @media screen and (max-width: 768px){
+  section div {
+  width: 100%;
+  }
+
 .contents-wrap {
   flex-direction: column;
 }
 
 .contents-box{
-  width: 100%;
+  width: 98%;
    }
  }
 
@@ -226,24 +262,41 @@ footer  {
 }
 
 /*pagetop*/
-#page-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  font-size: 70%;
+.page-top
+{
+	margin: 0 ;
+	padding: 0 ;
+  display: none ;
 }
 
-#page-top a {
-  background: #666;
-  text-decoration: none;
-  color: #fff;
-  width: 100px;
-  padding: 30px;
-  text-align: center;
-  border-radius: 5px;
+.page-top p
+{
+	margin: 0 ;
+	padding: 0 ;
+
+	position: fixed ;
+	right: 16px ;
+	bottom: 16px ;
 }
 
-#page-top a:hover {
-  text-decoration: none;
-  background: #999;
+.move-page-top
+{
+	display: block ;
+	background: #D36015 ;
+	width: 50px ;
+	height: 50px ;
+
+	color: #fff ;
+	line-height: 50px ;
+	text-decoration: none ;
+	text-align: center ;
+
+	-webkit-transition:all 0.3s ;
+	-moz-transition:all 0.3s ;
+	transition:all 0.3s ;
+}
+
+.move-page-top:hover
+{
+	opacity: 0.85 ;
 }
